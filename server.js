@@ -11,7 +11,7 @@ const path = require('path');
 // Setting up a static directory for the files in /pub
 // using Express middleware.
 // Don't put anything in /pub that you don't want the public to have access to!
-app.use(express.static(__dirname + "/../pub"))
+app.use(express.static(__dirname + "/../pub"));
 // Let's make some express 'routes'
 // Express has something called a Router, which 
 // takes specific HTTP requests and handles them
@@ -21,15 +21,9 @@ app.use(express.static(__dirname + "/../pub"))
 // 'root' of our app (i.e. top level domain '/')
 
 app.get('/', (req, res) => {
-	// sending a string
-	//res.send('This should be the root route!')
 
-	//sending some HTML
-	// res.send('<h1>This should be the root route!</h1>')
-	// res.sendFile('/pub/examples.js')
-	// res.sendFile('/pub/library.js')
-	res.sendFile('pub/examples.html')
-})
+	res.sendFile('pub/examples.html');
+});
 
 // Error codes
 app.get('/problem', (req, res) => {
@@ -40,7 +34,7 @@ app.get('/problem', (req, res) => {
 
 	// don't send nonsense status codes like this one:
 	//res.status(867).send('There was a problem on the server')
-})
+});
 
 
 // will use an 'environmental variable', process.env.PORT, for deployment.
