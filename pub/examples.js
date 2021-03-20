@@ -67,6 +67,7 @@ genderButton.addEventListener('submit', changeGenderClick)
 const addButton = document.querySelector('#addPeople')
 addButton.addEventListener('click', addMorePeople)
 
+
 function addMorePeople(e){
     e.preventDefault();
     addPerson(pg)
