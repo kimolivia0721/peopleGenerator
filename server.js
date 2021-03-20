@@ -3,8 +3,7 @@
 const log = console.log
 log('Express server')
 
-const express = require('express');
-const { read } = require('node:fs');
+const express = require('express')
 const app = express();
 
 const path = require('path');
@@ -13,7 +12,6 @@ const path = require('path');
 // using Express middleware.
 // Don't put anything in /pub that you don't want the public to have access to!
 app.use(express.static(path.join(__dirname, '/pub')))
-
 
 // Let's make some express 'routes'
 // Express has something called a Router, which 
@@ -29,7 +27,6 @@ app.get('/', (req, res) => {
 
 	//sending some HTML
 	res.send('<h1>This should be the root route!</h1>')
-	// res.sendFile('examples.html', {root: __dirname })
 })
 
 // Error codes
@@ -41,6 +38,16 @@ app.get('/problem', (req, res) => {
 
 	// don't send nonsense status codes like this one:
 	//res.status(867).send('There was a problem on the server')
+})
+
+// Sending some JSON
+app.get('/someJSON', (req, res) => {
+	// object converted to JSON string
+	res.send({
+		name: 'John',
+		year: 3,
+		courses: ['csc309', 'csc301']
+	})
 })
 
 // will use an 'environmental variable', process.env.PORT, for deployment.
