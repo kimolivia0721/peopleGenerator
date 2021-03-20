@@ -111,11 +111,8 @@ PeopleGenerator.prototype = {
         person.append(legs)
         person.append(legs2)
         person.id = this.people.length
-        // person.append(arms)
-
-        // newDiv.append(person)
         this.people.push([person, false]) // add to people list
-
+        console.log(this.people)
     },
 
     changeHairColor: function(index, color) {
@@ -183,4 +180,6 @@ PeopleGenerator.prototype = {
         child.style.backgroundColor = color
 
     },
+
+    
 }

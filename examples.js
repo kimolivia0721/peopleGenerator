@@ -6,10 +6,14 @@ const pg = new PeopleGenerator()
 pg.makePeople()
 
 const select = document.querySelector('#people')
+const addMore = document.createElement('Button')
+addMore.innerText = "Add more people"
+addMore.id = "addPeople"
+select.appendChild(addMore)
+
 const person = document.createElement('div')
 person.appendChild(pg.people[0][0])
 const divide = document.createElement('div')
-// divide.id = "buttons"
 const buttonPose = document.createElement('button')
 buttonPose.className = 'return'
 buttonPose.innerText = 'Change Pose'
@@ -48,17 +52,30 @@ divide.appendChild(buttonGender)
 person.appendChild(divide)
 select.appendChild(person)
 
+const arrow = document.querySelector('#arrow')
+arrow.style = " width: 0; height: 0; border-left: 50px solid transparent;border-right: 50px solid transparent;border-bottom: 100px solid pink;"
+
+
 const poseButton = document.querySelector('#pose')
 poseButton.addEventListener('click', changePoseClick)
 const hairButton = document.querySelector('#changeHair')
 hairButton.addEventListener('submit', changeHairClick)
 const skinButton = document.querySelector('#changeSkin')
 skinButton.addEventListener('submit', changeSkinClick)
-const genderButton = document.querySelector('#changeGender')
+const genderButton = document.querySelector('#gender')
 genderButton.addEventListener('submit', changeGenderClick)
+const addButton = document.querySelector('#addPeople')
+addButton.addEventListener('click', addMorePeople)
 
-const arrow = document.querySelector('#arrow')
-arrow.style = " width: 0; height: 0; border-left: 50px solid transparent;border-right: 50px solid transparent;border-bottom: 100px solid pink;"
+function addMorePeople(e){
+    e.preventDefault();
+    addPerson(pg)
+}
+
+function addPerson(){
+    pg.makePeople()
+    select.appendChild(pg.people[pg.people.length-1][0])
+}
 
 function changePoseClick(e) {
     e.preventDefault();
@@ -97,7 +114,7 @@ function changeSkin(personId, color) {
 
 function changeGenderClick(e){
     e.preventDefault();
-
+    changeGender(0)
 }
 function changeGender(personId){
 
