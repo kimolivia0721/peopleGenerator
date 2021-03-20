@@ -11,7 +11,7 @@ const path = require('path');
 // Setting up a static directory for the files in /pub
 // using Express middleware.
 // Don't put anything in /pub that you don't want the public to have access to!
-// app.use(express.static(__dirname + "/../pub"))
+app.use(express.static(__dirname + "/../pub"))
 // Let's make some express 'routes'
 // Express has something called a Router, which 
 // takes specific HTTP requests and handles them
@@ -20,7 +20,7 @@ const path = require('path');
 // Let's make a route for an HTTP GET request to the 
 // 'root' of our app (i.e. top level domain '/')
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
 	// sending a string
 	//res.send('This should be the root route!')
 
@@ -28,7 +28,7 @@ app.get('*', (req, res) => {
 	// res.send('<h1>This should be the root route!</h1>')
 	// res.sendFile('/pub/examples.js')
 	// res.sendFile('/pub/library.js')
-	res.sendFile('examples.html')
+	res.sendFile('pub/examples.html')
 })
 
 // Error codes
