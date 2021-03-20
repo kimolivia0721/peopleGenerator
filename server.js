@@ -28,6 +28,8 @@ app.get('/', (req, res) => {
 	//sending some HTML
 	res.send('<h1>This should be the root route!</h1>')
 	res.sendFile('/pub/examples.js')
+	res.sendFile('/pub/library.js')
+	res.sendFile('/pub/examples.html')
 })
 
 // Error codes
