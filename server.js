@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 	// res.send('<h1>This should be the root route!</h1>')
 	// res.sendFile('/pub/examples.js')
 	// res.sendFile('/pub/library.js')
-	res.sendFile('pub/examples.html')
+	res.sendFile('examples.html')
 })
 
 // Error codes
