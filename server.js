@@ -11,7 +11,6 @@ app.use(express.static(__dirname + "/../pub"));
 
 
 app.get('/', (req, res) => {
-
 	res.sendFile('pub/examples.html');
 });
 
